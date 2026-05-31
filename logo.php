@@ -20,4 +20,11 @@ echo "<div class='site-title ". esc_attr($date_class)  ."'>";
 		bloginfo( 'name' );
 		echo "</a>";
 	}
+
+	// "AI-Driven" badge beside the header wordmark. Header only; can be hidden via
+	// the `ai_badge` theme mod (default on) and the label is filterable.
+	if ( $args['source'] == 'header' && get_theme_mod( 'ai_badge', 'yes' ) != 'no' ) {
+		$ai_badge_label = apply_filters( 'ct_mission_news_ai_badge_label', esc_html__( 'AI-Driven', 'mission-news' ) );
+		echo '<span class="ai-badge"><span class="ai-badge__dot" aria-hidden="true"></span>' . esc_html( $ai_badge_label ) . '</span>';
+	}
 echo "</div>";

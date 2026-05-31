@@ -208,12 +208,28 @@
       margin-left: 4px;
       margin-right: 2px;
 
-      // NOTE: Per-category colour overrides would need PHP to add a wrapper
-      // with a slug class (e.g. .category-world, .category-tech) so CSS could
-      // target them.  ct_mission_news_byline_categories() already outputs
-      // class="<slug>" on each <a>, so selectors like
-      //   .post-categories a.world { --nm-accent: #2F726B; ... }
-      // would work — deferred until palette is finalised with client.
+      // Default chip: solid accent pill, white label.
+      background-color: var(--nm-accent);
+      color: var(--nm-surface);
+      transition: opacity 0.15s;
+
+      &:hover,
+      &:focus {
+        opacity: 0.85;
+        color: var(--nm-surface);
+      }
+
+      // Per-category colours. ct_mission_news_byline_categories() outputs
+      // class="<slug>" on each category <a> (sanitize_title of the cat name),
+      // so we recolour the chip per slug from the --nm-cat-* tokens. Slugs
+      // match the live NewsMash sections; unmapped categories fall back to the
+      // default accent pill above.
+      $nm-category-slugs: us, world, crime, politics, science, health, tech, financial;
+      @each $slug in $nm-category-slugs {
+        &.#{$slug} {
+          background-color: var(--nm-cat-#{$slug});
+        }
+      }
     }
   }
 }

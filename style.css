@@ -4384,6 +4384,37 @@ h3 {
 #main .post .post-byline .post-categories a, #main .post .widget_recent_entries .post-date .post-categories a, .widget_recent_entries #main .post .post-date .post-categories a, #main .post .widget_rss .rss-date .post-categories a, .widget_rss #main .post .rss-date .post-categories a {
   margin-left: 4px;
   margin-right: 2px;
+  background-color: var(--nm-accent);
+  color: var(--nm-surface);
+  transition: opacity 0.15s;
+}
+#main .post .post-byline .post-categories a:hover, #main .post .widget_recent_entries .post-date .post-categories a:hover, .widget_recent_entries #main .post .post-date .post-categories a:hover, #main .post .widget_rss .rss-date .post-categories a:hover, .widget_rss #main .post .rss-date .post-categories a:hover, #main .post .post-byline .post-categories a:focus, #main .post .widget_recent_entries .post-date .post-categories a:focus, .widget_recent_entries #main .post .post-date .post-categories a:focus, #main .post .widget_rss .rss-date .post-categories a:focus, .widget_rss #main .post .rss-date .post-categories a:focus {
+  opacity: 0.85;
+  color: var(--nm-surface);
+}
+#main .post .post-byline .post-categories a.us, #main .post .widget_recent_entries .post-date .post-categories a.us, .widget_recent_entries #main .post .post-date .post-categories a.us, #main .post .widget_rss .rss-date .post-categories a.us, .widget_rss #main .post .rss-date .post-categories a.us {
+  background-color: var(--nm-cat-us);
+}
+#main .post .post-byline .post-categories a.world, #main .post .widget_recent_entries .post-date .post-categories a.world, .widget_recent_entries #main .post .post-date .post-categories a.world, #main .post .widget_rss .rss-date .post-categories a.world, .widget_rss #main .post .rss-date .post-categories a.world {
+  background-color: var(--nm-cat-world);
+}
+#main .post .post-byline .post-categories a.crime, #main .post .widget_recent_entries .post-date .post-categories a.crime, .widget_recent_entries #main .post .post-date .post-categories a.crime, #main .post .widget_rss .rss-date .post-categories a.crime, .widget_rss #main .post .rss-date .post-categories a.crime {
+  background-color: var(--nm-cat-crime);
+}
+#main .post .post-byline .post-categories a.politics, #main .post .widget_recent_entries .post-date .post-categories a.politics, .widget_recent_entries #main .post .post-date .post-categories a.politics, #main .post .widget_rss .rss-date .post-categories a.politics, .widget_rss #main .post .rss-date .post-categories a.politics {
+  background-color: var(--nm-cat-politics);
+}
+#main .post .post-byline .post-categories a.science, #main .post .widget_recent_entries .post-date .post-categories a.science, .widget_recent_entries #main .post .post-date .post-categories a.science, #main .post .widget_rss .rss-date .post-categories a.science, .widget_rss #main .post .rss-date .post-categories a.science {
+  background-color: var(--nm-cat-science);
+}
+#main .post .post-byline .post-categories a.health, #main .post .widget_recent_entries .post-date .post-categories a.health, .widget_recent_entries #main .post .post-date .post-categories a.health, #main .post .widget_rss .rss-date .post-categories a.health, .widget_rss #main .post .rss-date .post-categories a.health {
+  background-color: var(--nm-cat-health);
+}
+#main .post .post-byline .post-categories a.tech, #main .post .widget_recent_entries .post-date .post-categories a.tech, .widget_recent_entries #main .post .post-date .post-categories a.tech, #main .post .widget_rss .rss-date .post-categories a.tech, .widget_rss #main .post .rss-date .post-categories a.tech {
+  background-color: var(--nm-cat-tech);
+}
+#main .post .post-byline .post-categories a.financial, #main .post .widget_recent_entries .post-date .post-categories a.financial, .widget_recent_entries #main .post .post-date .post-categories a.financial, #main .post .widget_rss .rss-date .post-categories a.financial, .widget_rss #main .post .rss-date .post-categories a.financial {
+  background-color: var(--nm-cat-financial);
 }
 
 #main .post .post-content {

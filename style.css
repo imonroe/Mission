@@ -5,7 +5,7 @@ Theme URI: https://www.competethemes.com/mission-news/
 Author: Compete Themes
 Author URI: https://www.competethemes.com/
 Description: A NewsMash redesign of the Mission News theme — a warm-neutral, image-forward, app-style feed. Keeps Mission News' layout mechanisms and widget areas intact while modernizing the look with a category chip nav, a card-based feed, per-category colors, and an AI-Driven badge. Based on Mission News by Compete Themes.
-Version: 1.65.1
+Version: 1.65.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: three-columns, left-sidebar, right-sidebar, custom-logo, custom-menu, featured-images, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, blog, entertainment, news
@@ -3562,8 +3562,14 @@ body.small-first-post .loop-container .entry.double.small:nth-child(even) .stick
   --nm-font-body: "Inter", "PT Sans", sans-serif;
   --nm-gap: 20px;
   --nm-shadow-card: 0 2px 12px 0 rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --nm-header-pad-x: 1.25rem;
 }
 
+@media all and (min-width: 50em) {
+  :root {
+    --nm-header-pad-x: 2rem;
+  }
+}
 .widget, #main .post {
   background: var(--nm-surface);
   border: 1px solid var(--nm-rule);
@@ -3626,7 +3632,7 @@ h3 {
   background: var(--nm-surface);
   border-bottom: 1px solid var(--nm-rule);
   margin-bottom: 0;
-  padding: 0 1.25rem;
+  padding: 0 var(--nm-header-pad-x);
   text-align: left;
   display: flex;
   flex-wrap: wrap;
@@ -3937,7 +3943,6 @@ h3 {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0 2rem;
     border-bottom: 1px solid var(--nm-rule);
   }
   .title-container {
@@ -3982,6 +3987,13 @@ h3 {
     border-bottom: 1px solid var(--nm-rule);
     background-color: var(--nm-bg);
     overflow: visible;
+    box-sizing: border-box;
+    flex-basis: calc(100% + 2 * var(--nm-header-pad-x));
+    max-width: none;
+    margin-left: calc(-1 * var(--nm-header-pad-x));
+    margin-right: calc(-1 * var(--nm-header-pad-x));
+    padding-left: var(--nm-header-pad-x);
+    padding-right: var(--nm-header-pad-x);
   }
   .menu-primary {
     padding: 6px 0;
@@ -4529,6 +4541,92 @@ h3 {
   background-color: transparent;
   color: var(--nm-muted);
   cursor: default;
+}
+
+.single #main .post .post-header,
+.single #main .post .post-content,
+.single #main .post .post-meta,
+.single #main .post .more-from-category {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.single #main .post .post-header {
+  padding-top: 22px;
+}
+
+.single #main .post .more-from-category {
+  padding-bottom: 28px;
+}
+
+.single #main .post .post-meta {
+  padding-top: 4px;
+  padding-bottom: 20px;
+}
+
+.single #main .post .post-meta .post-categories {
+  color: var(--nm-muted);
+  font-style: normal;
+  margin-bottom: 14px;
+}
+.single #main .post .post-meta .post-categories a {
+  color: var(--nm-accent);
+  text-decoration: none;
+}
+.single #main .post .post-meta .post-categories a:hover, .single #main .post .post-meta .post-categories a:focus {
+  text-decoration: underline;
+}
+
+.single #main .post .post-tags a {
+  border-radius: var(--nm-radius-pill);
+  background: var(--nm-surface-2);
+  border: 1px solid var(--nm-rule);
+  color: var(--nm-body);
+  padding: 4px 12px;
+  margin: 0 6px 6px 0;
+  transition: border-color 0.15s, color 0.15s;
+}
+.single #main .post .post-tags a:hover, .single #main .post .post-tags a:focus {
+  background: var(--nm-surface-2);
+  border-color: var(--nm-accent);
+  color: var(--nm-accent);
+}
+
+.single #main .post .post-author .author {
+  font-family: var(--nm-font-head);
+  font-weight: 800;
+  font-style: normal;
+  color: var(--nm-ink);
+}
+.single #main .post .post-author p {
+  color: var(--nm-body);
+}
+
+.single #main .post .more-from-category .section-title {
+  font-family: var(--nm-font-head);
+  font-weight: 800;
+  color: var(--nm-ink);
+}
+.single #main .post .more-from-category .category-link {
+  color: var(--nm-accent);
+  text-decoration: none;
+}
+.single #main .post .more-from-category .category-link:hover, .single #main .post .more-from-category .category-link:focus {
+  text-decoration: underline;
+}
+.single #main .post .more-from-category .title {
+  font-family: var(--nm-font-head);
+  color: var(--nm-ink);
+}
+.single #main .post .more-from-category .title:hover, .single #main .post .more-from-category .title:focus {
+  color: var(--nm-accent);
+}
+
+.single #main #comments,
+.single #main .comments-area {
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 8px;
 }
 
 .widget {

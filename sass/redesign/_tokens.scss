@@ -31,6 +31,15 @@
 
   --nm-gap: 20px;
   --nm-shadow-card: 0 2px 12px 0 rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+
+  // Horizontal padding of the header bar. Shared so the chip-nav full-bleed
+  // band can cancel it exactly (and stay aligned to the wordmark). Bumped to
+  // 2rem at desktop to match the header's desktop padding.
+  --nm-header-pad-x: 1.25rem;
+}
+
+@media all and (min-width: 50em) {
+  :root { --nm-header-pad-x: 2rem; }
 }
 
 // White rounded card surface used across cards/widgets.

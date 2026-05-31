@@ -396,3 +396,115 @@
   color: var(--nm-muted);
   cursor: default;
 }
+
+// ---------------------------------------------------------------------------
+// 9. Single post — restore horizontal padding on the meta/related blocks that
+//    live OUTSIDE .post-content, and add reading-column breathing room.
+//
+//    Real markup (content.php): inside <article> the order is
+//      .post-header  → padded by §4
+//      .featured-image
+//      .post-content → padded by §7
+//      .post-meta    → wraps .post-categories ("Published in"), .post-tags,
+//                      the after-post widget area, and .post-author  (padL: 0)
+//      .more-from-category  (direct article child, padL: 0)
+//    The two padL:0 blocks were jammed against the card edges. Pad them to
+//    match the body column, and give the single post a roomier rhythm.
+// ---------------------------------------------------------------------------
+
+$nm-single-pad: 28px;
+
+.single #main .post .post-header,
+.single #main .post .post-content,
+.single #main .post .post-meta,
+.single #main .post .more-from-category {
+  padding-left: $nm-single-pad;
+  padding-right: $nm-single-pad;
+}
+
+// A little more top room above the title, and bottom room at the very end.
+.single #main .post .post-header { padding-top: 22px; }
+.single #main .post .more-from-category { padding-bottom: $nm-single-pad; }
+
+// .post-meta groups the categories/tags/author footer — give it vertical air.
+.single #main .post .post-meta {
+  padding-top: 4px;
+  padding-bottom: 20px;
+}
+
+// "Published in" line — readable, not cramped italic.
+.single #main .post .post-meta .post-categories {
+  color: var(--nm-muted);
+  font-style: normal;
+  margin-bottom: 14px;
+
+  a {
+    color: var(--nm-accent);
+    text-decoration: none;
+
+    &:hover,
+    &:focus { text-decoration: underline; }
+  }
+}
+
+// Tags as soft chips.
+.single #main .post .post-tags {
+  a {
+    border-radius: var(--nm-radius-pill);
+    background: var(--nm-surface-2);
+    border: 1px solid var(--nm-rule);
+    color: var(--nm-body);
+    padding: 4px 12px;
+    margin: 0 6px 6px 0;
+    transition: border-color 0.15s, color 0.15s;
+
+    &:hover,
+    &:focus {
+      background: var(--nm-surface-2);
+      border-color: var(--nm-accent);
+      color: var(--nm-accent);
+    }
+  }
+}
+
+// Author bio — readable name + description.
+.single #main .post .post-author {
+  .author {
+    font-family: var(--nm-font-head);
+    font-weight: 800;
+    font-style: normal;
+    color: var(--nm-ink);
+  }
+  p { color: var(--nm-body); }
+}
+
+// "More from <category>" related list — heading + comfortable item spacing.
+.single #main .post .more-from-category {
+  .section-title {
+    font-family: var(--nm-font-head);
+    font-weight: 800;
+    color: var(--nm-ink);
+  }
+  .category-link {
+    color: var(--nm-accent);
+    text-decoration: none;
+
+    &:hover,
+    &:focus { text-decoration: underline; }
+  }
+  .title {
+    font-family: var(--nm-font-head);
+    color: var(--nm-ink);
+
+    &:hover,
+    &:focus { color: var(--nm-accent); }
+  }
+}
+
+// Comments block (when present) needs the same column padding.
+.single #main #comments,
+.single #main .comments-area {
+  padding-left: $nm-single-pad;
+  padding-right: $nm-single-pad;
+  padding-top: 8px;
+}

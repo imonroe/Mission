@@ -12,12 +12,30 @@
 
 @media all and (min-width: 50em) {
 
-  // Container: reset the legacy black-border strip, give it a chip-row feel
+  // Container: reset the legacy black-border strip, give it a chip-row feel.
+  // The chip row is the full-width child of .site-header (flex: 0 0 100%), but
+  // the header pads its content by 1.25rem — which left the cream strip inset,
+  // showing white notches at the left/right edges. Bleed the strip out by the
+  // same 1.25rem (then re-pad) so the cream band reaches the header edges while
+  // the chips stay aligned with the wordmark above.
   .menu-primary-container {
     border-top: none;
     border-bottom: 1px solid var(--nm-rule);
     background-color: var(--nm-bg);
     overflow: visible; // needed for .sub-menu popover to overflow
+    // The container is flex:0 0 100% (= header *content* width, i.e. minus the
+    // header's L/R padding). To make the cream band reach both header edges,
+    // grow its flex-basis by that L+R padding and pull it back left with a
+    // negative margin, then re-pad so chips stay aligned under the wordmark.
+    // (Overriding flex-basis is required — a plain `width` is ignored on a flex
+    // item whose main size is set by flex-basis.)
+    box-sizing: border-box;
+    flex-basis: calc(100% + (2 * var(--nm-header-pad-x)));
+    max-width: none;
+    margin-left: calc(-1 * var(--nm-header-pad-x));
+    margin-right: calc(-1 * var(--nm-header-pad-x));
+    padding-left: var(--nm-header-pad-x);
+    padding-right: var(--nm-header-pad-x);
   }
 
   // Wrapper padding

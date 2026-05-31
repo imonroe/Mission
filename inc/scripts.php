@@ -11,7 +11,11 @@ function ct_mission_news_load_scripts_styles() {
 	);
 	$fonts_url = add_query_arg( $font_args, '//fonts.googleapis.com/css' );
 
+	// App-feed redesign fonts (Google Fonts CSS2 endpoint).
+	$redesign_fonts_url = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap';
+
 	wp_enqueue_style( 'ct-mission-news-google-fonts', $fonts_url );
+	wp_enqueue_style( 'ct-mission-news-redesign-fonts', $redesign_fonts_url );
 	wp_enqueue_script( 'ct-mission-news-js', get_template_directory_uri() . '/js/build/production.min.js', array( 'jquery' ), '', true );
 	wp_localize_script( 'ct-mission-news-js', 'mission_news_objectL10n', array(
 		'openMenu'       => esc_html__( 'open menu', 'mission-news' ),

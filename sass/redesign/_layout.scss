@@ -1,0 +1,230 @@
+// redesign/_layout.scss
+// 3-rail app-feed layout: left rail | center feed | right rail
+// Override-only layer — loaded last via sass/style.scss.
+// Breakpoints (from _variables.scss):
+//   $eight-hundred  = 50em  — single-column threshold
+//   $one-thousand   = 62.5em
+//   $eleven-hundred = 68.75em — drop left rail threshold
+
+// ---------------------------------------------------------------------------
+// Rail width constants (px fine per spec; no tokens exist for these widths)
+// ---------------------------------------------------------------------------
+$nm-rail-left:  260px;
+$nm-rail-right: 320px;
+
+// ---------------------------------------------------------------------------
+// .content-container — cream background, vertical breathing room
+// ---------------------------------------------------------------------------
+.content-container {
+  background-color: var(--nm-bg);
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+  position: static; // neutralise legacy `position: relative` (pseudo-border trick)
+
+  // Kill the legacy pseudo-element sidebar-border lines
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// .layout-container — flex row, cream gap between rails
+// ---------------------------------------------------------------------------
+.layout-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--nm-gap, 1.25rem);
+
+  // Neutralise legacy display:table / float mechanics
+  position: static;
+  min-height: 0;
+
+  &::after {
+    display: none; // remove legacy clearfix pseudo
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Sidebar rails — fixed widths, no float/percentage legacy behaviour
+// ---------------------------------------------------------------------------
+.sidebar-left {
+  flex: 0 0 $nm-rail-left;
+  width: $nm-rail-left;
+  max-width: $nm-rail-left;
+  // Clear legacy float + margin-left set in _sidebar.scss at $eight-hundred
+  float: none;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+  // Remove legacy pseudo-element border
+  position: static;
+
+  &::before {
+    display: none;
+  }
+
+  // Override legacy display:table-row-group / display:block
+  display: block;
+
+  // Override legacy width:22% set on .sidebar at $eight-hundred
+  .inner {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .widget {
+    width: 100%;
+    float: none;
+    clear: both;
+
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
+  }
+}
+
+.sidebar-right {
+  flex: 0 0 $nm-rail-right;
+  width: $nm-rail-right;
+  max-width: $nm-rail-right;
+  // Clear legacy float + margin-right set in _sidebar.scss at $eight-hundred
+  float: none;
+  margin-right: 0;
+  padding-right: 0;
+  padding-left: 0;
+  // Override legacy display:table-footer-group / display:block
+  display: block;
+
+  .inner {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+
+  .widget {
+    width: 100%;
+    float: none;
+    clear: both;
+
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
+  }
+}
+
+// Override legacy width:22% applied to .sidebar at the $eight-hundred breakpoint
+.sidebar {
+  width: auto;
+}
+
+// ---------------------------------------------------------------------------
+// Center feed — fluid, fills remaining space
+// ---------------------------------------------------------------------------
+.main {
+  flex: 1 1 auto;
+  min-width: 0; // prevent flex blowout on long content
+  // Clear legacy float + percentage width set in _main.scss at $eight-hundred
+  float: none;
+  width: auto;
+  margin-left: 0;
+  position: static;
+  padding: 0;
+  // Override legacy display:table-header-group / display:block
+  display: block;
+
+  .loop-container {
+    padding: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Ad bands inside .main — always full-width, not constrained by rail logic
+// .widget-area-above-main lives inside #main so it inherits width naturally.
+// Explicitly full-width so nothing pulls it into a narrower column.
+// ---------------------------------------------------------------------------
+.widget-area-above-main {
+  width: 100%;
+}
+
+// The below-header ad is OUTSIDE .layout-container in the markup, so it is
+// already naturally full-width — no override needed.
+
+// ---------------------------------------------------------------------------
+// Responsive: under 68.75em — hide/drop left rail (two-rail: center + right)
+// ---------------------------------------------------------------------------
+@media all and (max-width: #{$eleven-hundred - 0.01em}) {
+
+  .layout-container {
+    // Left rail drops out; center + right remain side-by-side
+  }
+
+  .sidebar-left {
+    display: none; // hide left rail; it falls back to stacked anyway below 50em
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Responsive: under 62.5em — right rail moves below center
+// ---------------------------------------------------------------------------
+@media all and (max-width: #{$one-thousand - 0.01em}) {
+
+  .layout-container {
+    flex-wrap: wrap;
+  }
+
+  .sidebar-right {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Responsive: under 50em — full single-column stack
+// Order: center first, then sidebars
+// ---------------------------------------------------------------------------
+@media all and (max-width: $eight-hundred) {
+
+  .content-container {
+    padding-top: 1rem;
+  }
+
+  .layout-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sidebar-left {
+    display: block; // show again; it's below center in single-column view
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+  }
+
+  .main {
+    flex: 1 1 100%;
+    width: 100%;
+    order: 1; // center first
+  }
+
+  .sidebar-right {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    order: 3;
+  }
+
+  // Also restore widget layout inside sidebars for single column
+  .sidebar .widget {
+    width: 100%;
+    float: none;
+
+    &:nth-child(odd) {
+      margin-right: 0;
+    }
+  }
+}

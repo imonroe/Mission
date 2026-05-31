@@ -1,0 +1,242 @@
+// redesign/_footer.scss
+// Dark footer matching the warm App-feed redesign mockup.
+// Override-only — all selectors are scoped to .site-footer to beat legacy and
+// global redesign rules via the cascade (no !important needed).
+//
+// Token reference (defined in redesign/_tokens.scss):
+//   --nm-ink         #211C16  dark footer background / primary text on light
+//   --nm-surface     #FFFFFF  used for heading text on dark backgrounds
+//   --nm-accent      #C75D3A  terracotta accent
+//   --nm-font-head   Plus Jakarta Sans
+//   --nm-font-body   Inter
+//
+// Where no light-on-dark token exists we use tasteful hex values:
+//   #B9AF9F  secondary / muted light text on dark
+//   rgba(255,255,255,.1)  hairline border on dark
+
+// ---------------------------------------------------------------------------
+// 1. Footer shell — dark background, light base text
+// ---------------------------------------------------------------------------
+
+.site-footer {
+  background-color: var(--nm-ink);
+  color: #B9AF9F;
+  border-top: none; // removes legacy $color-gray-86 hairline
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+  text-align: left; // legacy sets text-align:center; reset to left for columns
+}
+
+// ---------------------------------------------------------------------------
+// 2. Footer title container — wordmark / tagline / social block
+// ---------------------------------------------------------------------------
+
+.site-footer .footer-title-container {
+  margin-bottom: 2rem;
+}
+
+// Wordmark — text logo variant
+.site-footer .site-title {
+  font-family: var(--nm-font-head);
+  color: var(--nm-surface);
+
+  a {
+    color: var(--nm-surface);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: var(--nm-accent);
+    }
+  }
+}
+
+// Image logo variant
+.site-footer .footer-logo {
+  filter: brightness(0) invert(1); // convert any logo to white
+  max-height: 2.5rem;
+  width: auto;
+}
+
+// Tagline beneath wordmark
+.site-footer .footer-tagline {
+  color: #B9AF9F;
+  font-style: normal; // override legacy italic
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+// ---------------------------------------------------------------------------
+// 3. Social icons — light/outline style, accent on hover
+// ---------------------------------------------------------------------------
+
+.site-footer .social-media-icons {
+  margin-top: 1.25rem;
+
+  a {
+    color: var(--nm-surface);
+    border-color: rgba(255, 255, 255, 0.35);
+
+    &:hover,
+    &:focus {
+      color: var(--nm-accent);
+      border-color: var(--nm-accent);
+      background-color: transparent;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 4. Footer nav menu — column-friendly layout, light links, accent hover
+// ---------------------------------------------------------------------------
+
+.site-footer .menu-footer-container {
+  font-family: var(--nm-font-body);
+}
+
+.site-footer .menu-footer-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+
+  li {
+    margin-bottom: 0; // override legacy margin-bottom: 12px
+  }
+
+  a {
+    color: #B9AF9F;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.15s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--nm-accent);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 5. Footer sidebar widgets — override the global white-card style from
+//    redesign/_widgets.scss.  Scoped to .site-footer so specificity beats the
+//    global rule without !important.
+// ---------------------------------------------------------------------------
+
+.site-footer .widget-area-site-footer {
+  // Reset layout borders added by legacy _widget_areas.scss
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.site-footer .widget {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  color: #B9AF9F;
+
+  // Any white-card padding/background set by redesign/_widgets.scss is removed
+  // via the above transparent + no-border resets.
+}
+
+.site-footer .widget-title {
+  color: var(--nm-surface);
+  font-family: var(--nm-font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.875rem;
+}
+
+// Links inside footer widgets
+.site-footer .widget a {
+  color: #B9AF9F;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--nm-accent);
+  }
+}
+
+// List items inside footer widgets
+.site-footer .widget ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 0.4rem 0;
+    font-size: 0.875rem;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 6. Design credit — small, muted, hairline separator above
+// ---------------------------------------------------------------------------
+
+.site-footer .design-credit {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  color: rgba(185, 175, 159, 0.6); // #B9AF9F at 60% opacity
+  text-align: center;
+
+  a {
+    color: rgba(185, 175, 159, 0.75);
+    text-decoration: none;
+    font-weight: 400; // override legacy font-weight: 700
+
+    &:hover,
+    &:focus {
+      color: var(--nm-accent);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 7. Responsive — stack layout under 50em, expand to columns above
+// ---------------------------------------------------------------------------
+
+@media all and (min-width: 50em) {
+
+  .site-footer {
+    padding-top: 4rem;
+  }
+
+  // Footer title block + menu side-by-side at wider viewports
+  .site-footer .footer-title-container {
+    max-width: 20rem; // keep the wordmark column narrow
+  }
+
+  // Multi-column footer widget area — let flex handle spacing
+  .site-footer .widget-area-site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 0;
+
+    .widget {
+      flex: 1 1 180px;
+    }
+  }
+
+  // Footer menu — inline pills at wider breakpoint
+  .site-footer .menu-footer-items {
+    flex-wrap: nowrap;
+  }
+}

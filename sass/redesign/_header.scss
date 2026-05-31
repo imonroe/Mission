@@ -1,0 +1,457 @@
+// redesign/_header.scss
+// Override layer: white, left-aligned app-style header bar.
+// All visual properties use var(--nm-*) tokens defined in _tokens.scss.
+// Do NOT edit other files. No hardcoded hex. Avoid !important.
+
+// ---------------------------------------------------------------------------
+// 1. Site header shell
+// ---------------------------------------------------------------------------
+// HTML source order: .top-nav → .title-container → .toggle-navigation → .menu-primary-container
+// We use flex `order` to visually place brand first and utilities second.
+.site-header {
+  background: var(--nm-surface);
+  border-bottom: 1px solid var(--nm-rule);
+  margin-bottom: 0;
+  padding: 0 1.25rem;
+  text-align: left;
+
+  // Clear the legacy :after clearfix approach; we use flex instead.
+  &::after {
+    display: none;
+  }
+
+  // Flex row: brand-block on the left, utilities (.top-nav) on the right.
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+// ---------------------------------------------------------------------------
+// 2. Brand block (.title-container)
+//    HTML position: second child. Visual position: first (order: 1).
+// ---------------------------------------------------------------------------
+.title-container {
+  order: 1; // appear first: brand left
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // Allow it to grow, pushing .top-nav to the far right.
+  flex: 1 1 auto;
+  // Reset legacy inline-block / max-width override from _header.scss.
+  max-width: none;
+  position: static;
+  padding: 0.625rem 0;
+  margin-bottom: 0;
+  z-index: auto;
+}
+
+// ---------------------------------------------------------------------------
+// 3. Site title / wordmark
+// ---------------------------------------------------------------------------
+.site-title {
+  // Override Abril Fatface with the redesign heading stack.
+  font-family: var(--nm-font-head, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  line-height: 1.1;
+  margin: 0;
+
+  a,
+  a:link,
+  a:visited {
+    color: var(--nm-ink);
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:active,
+  a:focus {
+    color: var(--nm-accent);
+  }
+
+  // Custom-logo image: constrain height, no border.
+  .custom-logo {
+    max-height: 2.5rem;
+    width: auto;
+    display: block;
+  }
+
+  // Reset legacy margin overrides.
+  &.no-date {
+    margin-top: 0;
+  }
+}
+
+// AI pill: no PHP hook available — skip rather than use a screen-reader-hostile
+// CSS content hack.
+// TODO(optional): AI-DRIVEN pill next to wordmark needs a PHP hook in logo.php.
+
+// ---------------------------------------------------------------------------
+// 4. Tagline and date (below wordmark)
+// ---------------------------------------------------------------------------
+.tagline {
+  display: block; // override legacy "display: none" at small breakpoints
+  font-family: var(--nm-font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--nm-muted);
+  font-style: normal; // remove legacy italic
+  margin: 0.125rem 0 0;
+  line-height: 1.4;
+}
+
+.site-header .date {
+  display: block;
+  font-family: var(--nm-font-body, 'Inter', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--nm-muted);
+  margin: 0.125rem 0 0;
+  // Reset legacy absolute-positioning applied at $eight-hundred.
+  position: static;
+  left: auto;
+  bottom: auto;
+}
+
+// ---------------------------------------------------------------------------
+// 5. Utility bar (.top-nav)
+//    HTML position: first child. Visual position: second (order: 2).
+// ---------------------------------------------------------------------------
+.top-nav {
+  order: 2; // appear second: utilities right
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 1 auto;
+  margin-bottom: 0; // reset legacy margin
+  padding: 0.5rem 0;
+
+  // Reset legacy clearfix float.
+  &::after {
+    display: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 6. Search toggle button (opens the full-screen popup)
+// ---------------------------------------------------------------------------
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--nm-surface-2);
+  border: 1px solid var(--nm-rule);
+  border-radius: var(--nm-radius-pill, 999px);
+  padding: 0.375rem 0.875rem;
+  font-family: var(--nm-font-body, 'Inter', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--nm-muted);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  // Reset legacy float / negative margin.
+  float: none;
+  margin: 0;
+  position: static;
+  z-index: auto;
+
+  span {
+    display: inline; // override legacy "display: none"
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-left: 0;
+    line-height: inherit;
+  }
+
+  i {
+    font-size: 0.8125rem;
+    line-height: 1;
+  }
+
+  &:hover,
+  &:focus {
+    background: var(--nm-surface);
+    border-color: var(--nm-ink);
+    color: var(--nm-ink);
+    outline: none;
+  }
+
+  &.open {
+    border-color: var(--nm-ink);
+    color: var(--nm-ink);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 7. Full-screen search popup (overlay) — refine pill input inside
+// ---------------------------------------------------------------------------
+.search-form-popup {
+  background: rgba(255, 255, 255, 0.97); // keep opaque white; no token for rgba
+
+  .search-form {
+    display: flex;
+  }
+
+  .search-field {
+    background: var(--nm-surface-2);
+    border: 1px solid var(--nm-rule);
+    border-right: none;
+    border-radius: var(--nm-radius-pill, 999px) 0 0 var(--nm-radius-pill, 999px);
+    color: var(--nm-ink);
+
+    &::placeholder {
+      color: var(--nm-muted);
+    }
+  }
+
+  .search-submit {
+    background: var(--nm-accent);
+    border: 1px solid var(--nm-accent);
+    border-left: none;
+    border-radius: 0 var(--nm-radius-pill, 999px) var(--nm-radius-pill, 999px) 0;
+    color: var(--nm-surface);
+    font-family: var(--nm-font-body, 'Inter', sans-serif);
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+
+    &:hover,
+    &:focus {
+      background: var(--nm-ink);
+      border-color: var(--nm-ink);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 8. Social media icons
+// ---------------------------------------------------------------------------
+.site-header .social-media-icons {
+  display: flex; // override legacy "display: none" / "display: block"
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  // Reset legacy float: right.
+  float: none;
+
+  li {
+    display: flex;
+    margin: 0;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.5rem; // subtle rounded-square
+    border: 1px solid var(--nm-rule);
+    background: var(--nm-surface-2);
+    color: var(--nm-muted);
+    font-size: 0.875rem;
+    line-height: 1;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+    &:link,
+    &:visited {
+      color: var(--nm-muted);
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: var(--nm-accent-soft);
+      border-color: var(--nm-accent);
+      color: var(--nm-accent);
+    }
+  }
+
+  i {
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  // Custom image icons
+  .custom-icon img {
+    width: 1rem;
+    height: auto;
+    display: block;
+    margin: 0;
+  }
+
+  // Reset the "moved" class workaround (legacy mobile show/hide).
+  &.moved {
+    display: flex;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 9. Secondary menu container within .top-nav
+// ---------------------------------------------------------------------------
+.menu-secondary-container {
+  display: flex;
+  align-items: center;
+}
+
+// ---------------------------------------------------------------------------
+// 10. Mobile toggle button — keep visible and usable
+//     HTML position: third child. Visual position: third (order: 3).
+//     Sits at far right of the brand row beside .title-container on mobile.
+// ---------------------------------------------------------------------------
+.toggle-navigation {
+  flex-shrink: 0;
+  order: 3;
+  background: none;
+  border: 1px solid var(--nm-rule);
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.5rem;
+  cursor: pointer;
+  color: var(--nm-ink);
+  transition: border-color 0.2s;
+
+  &:hover,
+  &:focus {
+    border-color: var(--nm-ink);
+    outline: none;
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 10b. Primary nav container — full-width row below brand + utilities
+// ---------------------------------------------------------------------------
+.menu-primary-container {
+  order: 4;        // after brand, utilities, toggle
+  flex: 0 0 100%;  // full-width: force new row
+}
+
+// ---------------------------------------------------------------------------
+// 11. Responsive — stacked layout under 50em ($eight-hundred = 50em)
+// ---------------------------------------------------------------------------
+@media all and (max-width: 49.9375em) {
+
+  // On mobile: brand row (order 1) + toggle (order 3) on line 1;
+  // utilities (order 2 — but wrap pushes it) on line 2.
+  // We use a row layout so brand + toggle share the first line naturally.
+  .site-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    gap: 0.375rem;
+  }
+
+  // Brand takes most of the first-line width.
+  .title-container {
+    flex: 1 1 auto;
+    padding: 0;
+    order: 1;
+  }
+
+  // Toggle sits at the end of the first line.
+  .toggle-navigation {
+    order: 2;
+    flex: 0 0 auto;
+  }
+
+  // Utilities wrap to the second line.
+  .top-nav {
+    order: 3;
+    flex: 0 0 100%;
+    padding: 0.25rem 0;
+    gap: 0.375rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  // Primary nav wraps to line 3.
+  .menu-primary-container {
+    order: 4;
+  }
+
+  // Social icons: keep them in the flow.
+  .site-header .social-media-icons {
+    display: flex;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 12. Desktop layout — flex row, brand (order 1) left, utilities (order 2) right
+// ---------------------------------------------------------------------------
+@media all and (min-width: 50em) {
+
+  .site-header {
+    flex-direction: row;
+    flex-wrap: wrap; // still wrap so .menu-primary-container (order 4) gets own line
+    align-items: center;
+    padding: 0 2rem;
+    border-bottom: 1px solid var(--nm-rule); // ensure legacy override doesn't clear this
+  }
+
+  .title-container {
+    order: 1;
+    flex: 1 1 auto;
+    margin-bottom: 0;
+    padding: 0.75rem 0;
+  }
+
+  .top-nav {
+    order: 2;
+    flex: 0 1 auto;
+    flex-wrap: nowrap;
+    padding: 0.75rem 0;
+    // No margin-left: auto needed — title-container flex:1 pushes it right.
+  }
+
+  // Hide hamburger on desktop — legacy already does this;
+  // belt-and-braces in case legacy rule is overridden upstream.
+  .toggle-navigation {
+    order: 3;
+    display: none;
+  }
+
+  .menu-primary-container {
+    order: 4;
+    flex: 0 0 100%; // full-width row
+  }
+
+  .site-title {
+    font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  }
+
+  // At desktop the date was absolute-positioned in legacy CSS; reset that.
+  .site-header .date {
+    position: static;
+    left: auto;
+    bottom: auto;
+    display: inline-block;
+  }
+
+  // Restore tagline visibility overridden in legacy.
+  .tagline {
+    display: block;
+  }
+
+  // Mobile-menu-open state — keep working with legacy JS.
+  .mobile-menu-open .site-header {
+    margin-bottom: 0;
+  }
+}

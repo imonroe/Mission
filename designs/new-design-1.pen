@@ -1,0 +1,2473 @@
+{
+  "version": "2.13",
+  "children": [
+    {
+      "type": "frame",
+      "id": "oEwt1",
+      "x": 0,
+      "y": 0,
+      "name": "App Feed — Homepage",
+      "clip": true,
+      "width": 1280,
+      "fill": "$bg",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "fiXeJ",
+          "name": "Header",
+          "width": "fill_container",
+          "fill": "$surface",
+          "stroke": "$rule",
+          "strokeWidth": {
+            "bottom": 1
+          },
+          "padding": [
+            16,
+            28
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "PWKKH",
+              "name": "Brand",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "kmzgn",
+                  "name": "Wordmark",
+                  "fill": "$ink",
+                  "content": "News Mash",
+                  "fontFamily": "$font-head",
+                  "fontSize": 24,
+                  "fontWeight": "800",
+                  "letterSpacing": -0.5
+                },
+                {
+                  "type": "frame",
+                  "id": "AMWyZ",
+                  "name": "AI Pill",
+                  "fill": "$accentSoft",
+                  "cornerRadius": 20,
+                  "gap": 6,
+                  "padding": [
+                    5,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "AWLVt",
+                      "name": "spark",
+                      "width": 12,
+                      "height": 12,
+                      "icon": "sparkles",
+                      "library": "lucide",
+                      "fill": "$accent"
+                    },
+                    {
+                      "type": "text",
+                      "id": "m0WXKm",
+                      "name": "AItxt",
+                      "fill": "$accent",
+                      "content": "AI-DRIVEN",
+                      "fontFamily": "$font-body",
+                      "fontSize": 10,
+                      "fontWeight": "700",
+                      "letterSpacing": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Xxshs",
+              "name": "Header Right",
+              "gap": 14,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "mVwss",
+                  "name": "Search",
+                  "width": 240,
+                  "fill": "$surface2",
+                  "cornerRadius": 22,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    10,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "gCluG",
+                      "name": "sIcon",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "search",
+                      "library": "lucide",
+                      "fill": "$muted"
+                    },
+                    {
+                      "type": "text",
+                      "id": "S5m6d",
+                      "name": "sPlace",
+                      "fill": "$muted",
+                      "content": "Search the news",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ly9J5",
+                  "name": "bookmarkBtn",
+                  "fill": "$surface2",
+                  "cornerRadius": 20,
+                  "padding": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "tYtaG",
+                      "name": "bookmark",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "bookmark",
+                      "library": "lucide",
+                      "fill": "$ink"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YOzXl",
+                  "name": "bellBtn",
+                  "fill": "$surface2",
+                  "cornerRadius": 20,
+                  "padding": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "J7wCZ",
+                      "name": "bell",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "bell",
+                      "library": "lucide",
+                      "fill": "$ink"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "TIhXt",
+                  "name": "Avatar",
+                  "width": 38,
+                  "height": 38,
+                  "fill": "$accent",
+                  "cornerRadius": 20,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "JSNj4",
+                      "name": "AvInit",
+                      "fill": "#ffffff",
+                      "content": "N",
+                      "fontFamily": "$font-head",
+                      "fontSize": 15,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "IObSQ",
+          "name": "Category Chips",
+          "width": "fill_container",
+          "fill": "$bg",
+          "gap": 10,
+          "padding": [
+            14,
+            28
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "gHlba",
+              "name": "Chip Home",
+              "fill": "$accent",
+              "cornerRadius": 20,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "LsB4y",
+                  "name": "ChipTxt",
+                  "fill": "#ffffff",
+                  "content": "Home",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "v8z3Rv",
+              "name": "Chip US",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JhUPb",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "US",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EMDC6",
+              "name": "Chip World",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ELob2",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "World",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "PoenJ",
+              "name": "Chip Crime",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "gbR1N",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "Crime",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "NiPUy",
+              "name": "Chip Politics",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "U2GFV",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "Politics",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R0l64",
+              "name": "Chip Science",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PvtIa",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "Science",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "g3d71",
+              "name": "Chip Health",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SLySh",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "Health",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pOhcp",
+              "name": "Chip Tech",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "F5Kei",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "Tech",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BOOL8",
+              "name": "Chip Financial",
+              "fill": "$surface",
+              "cornerRadius": 20,
+              "stroke": "$rule",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "z9C2i4",
+                  "name": "ChipTxt",
+                  "fill": "$body",
+                  "content": "Financial",
+                  "fontFamily": "$font-body",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "bOeTm",
+          "name": "Content",
+          "width": "fill_container",
+          "fill": "$bg",
+          "gap": 24,
+          "padding": [
+            8,
+            28,
+            32,
+            28
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "zZbqz",
+              "name": "Left Rail",
+              "width": 260,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Uqv34",
+                  "name": "AI Briefing",
+                  "width": "fill_container",
+                  "fill": "$ink",
+                  "cornerRadius": 16,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BVXrG",
+                      "name": "BHead",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "i8obmc",
+                          "name": "spark",
+                          "width": 15,
+                          "height": 15,
+                          "icon": "sparkles",
+                          "library": "lucide",
+                          "fill": "#E8B79A"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pKctH",
+                          "name": "BT",
+                          "fill": "#ffffff",
+                          "content": "Today's AI Briefing",
+                          "fontFamily": "$font-head",
+                          "fontSize": 14,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "rjj8E",
+                      "name": "BBody",
+                      "fill": "#D9D0C4",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Three things to know this morning: a surprise budget vote, easing inflation data, and a breakthrough in vaccine research.",
+                      "lineHeight": 1.55,
+                      "fontFamily": "$font-body",
+                      "fontSize": 12.5,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "o1E0z",
+                      "name": "BBtn",
+                      "width": "fill_container",
+                      "fill": "$accent",
+                      "cornerRadius": 10,
+                      "padding": [
+                        9,
+                        14
+                      ],
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Pucvq",
+                          "name": "bt",
+                          "fill": "#ffffff",
+                          "content": "Read the brief",
+                          "fontFamily": "$font-body",
+                          "fontSize": 12.5,
+                          "fontWeight": "700"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "f8w5wJ",
+                  "name": "Featured Card",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 16,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "x2zBL",
+                      "name": "FT",
+                      "fill": "$ink",
+                      "content": "Featured",
+                      "fontFamily": "$font-head",
+                      "fontSize": 16,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.3
+                    },
+                    {
+                      "type": "frame",
+                      "id": "FAwto",
+                      "name": "FItem",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "AR7fx",
+                          "name": "Rank",
+                          "fill": "$accent",
+                          "content": "1",
+                          "fontFamily": "$font-head",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "x5xbyf",
+                          "name": "Ftx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "E8zpOP",
+                              "name": "Fh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Senate advances budget bill after late-night session",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "VawS8",
+                              "name": "Fm",
+                              "fill": "$muted",
+                              "content": "Politics · 2h",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QBemp",
+                      "name": "FItem",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "oH3g2",
+                          "name": "Rank",
+                          "fill": "$accent",
+                          "content": "2",
+                          "fontFamily": "$font-head",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "a2utb3",
+                          "name": "Ftx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "k8Phy",
+                              "name": "Fh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Climate summit ends with cautious new pledges",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "L1dWg",
+                              "name": "Fm",
+                              "fill": "$muted",
+                              "content": "World · 5h",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EgoQi",
+                      "name": "FItem",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qWIDT",
+                          "name": "Rank",
+                          "fill": "$accent",
+                          "content": "3",
+                          "fontFamily": "$font-head",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "wc1SK",
+                          "name": "Ftx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "PBoci",
+                              "name": "Fh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Markets steady as inflation cools",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "kR5dA",
+                              "name": "Fm",
+                              "fill": "$muted",
+                              "content": "Financial · 6h",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "OYkVM",
+                      "name": "FItem",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "O5WVJM",
+                          "name": "Rank",
+                          "fill": "$accent",
+                          "content": "4",
+                          "fontFamily": "$font-head",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "PEsi5",
+                          "name": "Ftx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "zQ0Ii",
+                              "name": "Fh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "City unveils transit expansion plan",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "t76FYJ",
+                              "name": "Fm",
+                              "fill": "$muted",
+                              "content": "US · 8h",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "J9PJM1",
+                      "name": "FItem",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "w6jx1o",
+                          "name": "Rank",
+                          "fill": "$accent",
+                          "content": "5",
+                          "fontFamily": "$font-head",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VqziK",
+                          "name": "Ftx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "s7yNUb",
+                              "name": "Fh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Court weighs landmark privacy case",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "f2Au3R",
+                              "name": "Fm",
+                              "fill": "$muted",
+                              "content": "Tech · Yesterday",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "WuKSn",
+              "name": "Center",
+              "width": 596,
+              "layout": "vertical",
+              "gap": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xRTrb",
+                  "name": "Ad — Leaderboard",
+                  "width": "fill_container",
+                  "fill": "$surface2",
+                  "cornerRadius": 12,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "padding": [
+                    18,
+                    24
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "C8MyQe",
+                      "name": "adl",
+                      "fill": "$muted",
+                      "content": "ADVERTISEMENT",
+                      "fontFamily": "$font-body",
+                      "fontSize": 10,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "h0BQY",
+                      "name": "adsz",
+                      "fill": "$muted",
+                      "content": "Below-header ad slot · 728 × 90",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "anFaI",
+                  "name": "Hero Card",
+                  "clip": true,
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 18,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "id": "T1QXdq",
+                      "name": "Hero Image",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "drewjayadams",
+                        "link": "https://unsplash.com/@drewjayadams",
+                        "author": "Andrew Adams"
+                      },
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1642799819201-c3ccf956b013?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "fill"
+                      },
+                      "width": "fill_container",
+                      "height": 320
+                    },
+                    {
+                      "type": "frame",
+                      "id": "yllEG",
+                      "name": "Hero Body",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 12,
+                      "padding": 26,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "sBcME",
+                          "name": "Hero Chip",
+                          "fill": "#B5543A",
+                          "cornerRadius": 6,
+                          "padding": [
+                            5,
+                            10
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "CWiXt",
+                              "name": "t",
+                              "fill": "#ffffff",
+                              "content": "POLITICS",
+                              "fontFamily": "$font-body",
+                              "fontSize": 10,
+                              "fontWeight": "700",
+                              "letterSpacing": 1
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "EgjnF",
+                          "name": "Hero Title",
+                          "fill": "$ink",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "How a Quiet Policy Shift Could Reshape the Next Decade",
+                          "lineHeight": 1.15,
+                          "fontFamily": "$font-head",
+                          "fontSize": 30,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.5
+                        },
+                        {
+                          "type": "text",
+                          "id": "rCpMp",
+                          "name": "Hero Excerpt",
+                          "fill": "$body",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Buried in a procedural vote few noticed, the change could touch everything from local budgets to the price of everyday goods.",
+                          "lineHeight": 1.55,
+                          "fontFamily": "$font-body",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "X9S2QU",
+                          "name": "Hero Meta",
+                          "width": "fill_container",
+                          "gap": 8,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "tE5j1",
+                              "name": "mL",
+                              "gap": 8,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "p110W",
+                                  "name": "by",
+                                  "fill": "$ink",
+                                  "content": "Jordan Avery",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "r0t5oT",
+                                  "name": "dot",
+                                  "fill": "$muted",
+                                  "content": "•",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "MY36h",
+                                  "name": "time",
+                                  "fill": "$muted",
+                                  "content": "2 hours ago",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 12,
+                                  "fontWeight": "normal"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "a2vMTw",
+                              "name": "ReadPill",
+                              "fill": "$accentSoft",
+                              "cornerRadius": 14,
+                              "gap": 6,
+                              "padding": [
+                                5,
+                                12
+                              ],
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "l536rS",
+                                  "name": "clock",
+                                  "width": 12,
+                                  "height": 12,
+                                  "icon": "clock-3",
+                                  "library": "lucide",
+                                  "fill": "$accent"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "YM1tB",
+                                  "name": "rt",
+                                  "fill": "$accent",
+                                  "content": "5 min read",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 11,
+                                  "fontWeight": "600"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KaUHd",
+                  "name": "Sec Head",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oj2rF",
+                      "name": "SecTitle",
+                      "fill": "$ink",
+                      "content": "Top Stories",
+                      "fontFamily": "$font-head",
+                      "fontSize": 19,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.3
+                    },
+                    {
+                      "type": "text",
+                      "id": "bUJVx",
+                      "name": "SeeAll",
+                      "fill": "$accent",
+                      "content": "See all →",
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X1hDS",
+                  "name": "Card Row",
+                  "width": "fill_container",
+                  "gap": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "MuFMS",
+                      "name": "Card",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": "$rule",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "z7Bb6",
+                          "name": "CImg",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "santesson89",
+                            "link": "https://unsplash.com/@santesson89",
+                            "author": "Andrea De Santis"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1643056205382-779bfbe21a8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTR8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": 148
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FCIGt",
+                          "name": "CBody",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "loeDG",
+                              "name": "CChip",
+                              "fill": "#2F726B",
+                              "cornerRadius": 5,
+                              "padding": [
+                                4,
+                                9
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "q3WN54",
+                                  "name": "t",
+                                  "fill": "#ffffff",
+                                  "content": "WORLD",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 9,
+                                  "fontWeight": "700",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "DAINx",
+                              "name": "CTitle",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Border Talks Resume Amid Cautious Optimism",
+                              "lineHeight": 1.2,
+                              "fontFamily": "$font-head",
+                              "fontSize": 17,
+                              "fontWeight": "700",
+                              "letterSpacing": -0.2
+                            },
+                            {
+                              "type": "text",
+                              "id": "R39fCX",
+                              "name": "CExc",
+                              "fill": "$body",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Negotiators return after a months-long impasse.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "pSwB6",
+                              "name": "CMeta",
+                              "fill": "$muted",
+                              "content": "3h · 4 min read",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xAdhA",
+                      "name": "Card",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": "$rule",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "bXEE4",
+                          "name": "CImg",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "markusspiske",
+                            "link": "https://unsplash.com/@markusspiske",
+                            "author": "Markus Spiske"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1542903660-eedba2cda473?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTR8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": 148
+                        },
+                        {
+                          "type": "frame",
+                          "id": "HNOlL",
+                          "name": "CBody",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "u6jRKH",
+                              "name": "CChip",
+                              "fill": "#5E5687",
+                              "cornerRadius": 5,
+                              "padding": [
+                                4,
+                                9
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "wNGDz",
+                                  "name": "t",
+                                  "fill": "#ffffff",
+                                  "content": "TECH",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 9,
+                                  "fontWeight": "700",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "RKtWM",
+                              "name": "CTitle",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "The Quiet Race to Rebuild the Web's Plumbing",
+                              "lineHeight": 1.2,
+                              "fontFamily": "$font-head",
+                              "fontSize": 17,
+                              "fontWeight": "700",
+                              "letterSpacing": -0.2
+                            },
+                            {
+                              "type": "text",
+                              "id": "vy70f",
+                              "name": "CExc",
+                              "fill": "$body",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Inside the protocols that may define the next era.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "vJGkh",
+                              "name": "CMeta",
+                              "fill": "$muted",
+                              "content": "4h · 4 min read",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y8Qgg",
+                  "name": "Card Row",
+                  "width": "fill_container",
+                  "gap": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "C9Ucv",
+                      "name": "Card",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": "$rule",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "GtF3A",
+                          "name": "CImg",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "hubblespacetelescope",
+                            "link": "https://unsplash.com/@hubblespacetelescope",
+                            "author": "NASA Hubble Space Telescope"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1710676827643-67150c0c0026?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTV8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": 148
+                        },
+                        {
+                          "type": "frame",
+                          "id": "AFaA9",
+                          "name": "CBody",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "o26eD",
+                              "name": "CChip",
+                              "fill": "#6B7547",
+                              "cornerRadius": 5,
+                              "padding": [
+                                4,
+                                9
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "x4dFW",
+                                  "name": "t",
+                                  "fill": "#ffffff",
+                                  "content": "SCIENCE",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 9,
+                                  "fontWeight": "700",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "stOFV",
+                              "name": "CTitle",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "New Telescope Data Hints at Older Galaxies",
+                              "lineHeight": 1.2,
+                              "fontFamily": "$font-head",
+                              "fontSize": 17,
+                              "fontWeight": "700",
+                              "letterSpacing": -0.2
+                            },
+                            {
+                              "type": "text",
+                              "id": "EliUH",
+                              "name": "CExc",
+                              "fill": "$body",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Findings could push back the cosmic timeline.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "Q36Cz8",
+                              "name": "CMeta",
+                              "fill": "$muted",
+                              "content": "6h · 4 min read",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s8a1Gr",
+                      "name": "Card",
+                      "clip": true,
+                      "width": "fill_container",
+                      "fill": "$surface",
+                      "cornerRadius": 14,
+                      "stroke": "$rule",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "id": "tykJb",
+                          "name": "CImg",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "nci",
+                            "link": "https://unsplash.com/@nci",
+                            "author": "National Cancer Institute"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1578496479914-7ef3b0193be3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTV8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": "fill_container",
+                          "height": 148
+                        },
+                        {
+                          "type": "frame",
+                          "id": "S0f1Q",
+                          "name": "CBody",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Hn14o",
+                              "name": "CChip",
+                              "fill": "#AC5A66",
+                              "cornerRadius": 5,
+                              "padding": [
+                                4,
+                                9
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "DpSns",
+                                  "name": "t",
+                                  "fill": "#ffffff",
+                                  "content": "HEALTH",
+                                  "fontFamily": "$font-body",
+                                  "fontSize": 9,
+                                  "fontWeight": "700",
+                                  "letterSpacing": 1
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "PkF6Q",
+                              "name": "CTitle",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Progress Toward a Universal Flu Vaccine",
+                              "lineHeight": 1.2,
+                              "fontFamily": "$font-head",
+                              "fontSize": 17,
+                              "fontWeight": "700",
+                              "letterSpacing": -0.2
+                            },
+                            {
+                              "type": "text",
+                              "id": "lZmnp",
+                              "name": "CExc",
+                              "fill": "$body",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "An approach that could end the yearly guessing game.",
+                              "lineHeight": 1.5,
+                              "fontFamily": "$font-body",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "bW6Ts",
+                              "name": "CMeta",
+                              "fill": "$muted",
+                              "content": "Yesterday · 4 min read",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ecLNb",
+              "name": "Right Rail",
+              "width": 320,
+              "layout": "vertical",
+              "gap": 20,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "B5oao",
+                  "name": "Latest Card",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 16,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "m1qLyD",
+                      "name": "LH",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "go1Qp",
+                          "name": "LT",
+                          "fill": "$ink",
+                          "content": "Latest in US",
+                          "fontFamily": "$font-head",
+                          "fontSize": 16,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.3
+                        },
+                        {
+                          "type": "frame",
+                          "id": "zXgFy",
+                          "name": "Live",
+                          "fill": "#EEDFD7",
+                          "cornerRadius": 10,
+                          "gap": 5,
+                          "padding": [
+                            3,
+                            9
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "hyxqa",
+                              "name": "d",
+                              "fill": "$accent",
+                              "width": 7,
+                              "height": 7
+                            },
+                            {
+                              "type": "text",
+                              "id": "xrQ9j",
+                              "name": "lv",
+                              "fill": "$accent",
+                              "content": "LIVE",
+                              "fontFamily": "$font-body",
+                              "fontSize": 9,
+                              "fontWeight": "700",
+                              "letterSpacing": 1
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YbbbJ",
+                      "name": "LI",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 10,
+                          "id": "PQhaZ",
+                          "name": "LIm",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "justmejuliee",
+                            "link": "https://unsplash.com/@justmejuliee",
+                            "author": "Julia Taubitz"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1761477104573-69b5b65acf57?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 64,
+                          "height": 64
+                        },
+                        {
+                          "type": "frame",
+                          "id": "niENn",
+                          "name": "Ltx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "a3UukO",
+                              "name": "Lh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "City unveils transit expansion plan",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "sW1tB",
+                              "name": "Lm",
+                              "fill": "$muted",
+                              "content": "12m ago",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hunU8",
+                      "name": "LI",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 10,
+                          "id": "hca5y",
+                          "name": "LIm",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "inayali",
+                            "link": "https://unsplash.com/@inayali",
+                            "author": "Ali Inay"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 64,
+                          "height": 64
+                        },
+                        {
+                          "type": "frame",
+                          "id": "UrqI8",
+                          "name": "Ltx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GQEMF",
+                              "name": "Lh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "A new spot draws long lines downtown",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "o8fXD",
+                              "name": "Lm",
+                              "fill": "$muted",
+                              "content": "40m ago",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DKwGf",
+                      "name": "LI",
+                      "width": "fill_container",
+                      "stroke": "$rule",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "gap": 12,
+                      "padding": [
+                        0,
+                        0,
+                        14,
+                        0
+                      ],
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 10,
+                          "id": "QAPha",
+                          "name": "LIm",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "shonar",
+                            "link": "https://unsplash.com/@shonar",
+                            "author": "Mohammed Shonar"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1767584413129-2ad2941b7e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 64,
+                          "height": 64
+                        },
+                        {
+                          "type": "frame",
+                          "id": "FSbbP",
+                          "name": "Ltx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "hW1Cj",
+                              "name": "Lh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Local team clinches a playoff berth",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "KAeI1",
+                              "name": "Lm",
+                              "fill": "$muted",
+                              "content": "1h ago",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h4A3jE",
+                      "name": "LI",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 10,
+                          "id": "BbfDB",
+                          "name": "LIm",
+                          "metadata": {
+                            "type": "unsplash",
+                            "username": "seenyboy",
+                            "link": "https://unsplash.com/@seenyboy",
+                            "author": "Seen"
+                          },
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "https://images.unsplash.com/photo-1670924786856-05571994d80c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODAyNDY3MTd8&ixlib=rb-4.1.0&q=80&w=1080",
+                            "mode": "fill"
+                          },
+                          "width": 64,
+                          "height": 64
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Bi01r",
+                          "name": "Ltx",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 4,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "CjD23",
+                              "name": "Lh",
+                              "fill": "$ink",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "School board approves new budget",
+                              "lineHeight": 1.3,
+                              "fontFamily": "$font-head",
+                              "fontSize": 13.5,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "t7tnnN",
+                              "name": "Lm",
+                              "fill": "$muted",
+                              "content": "2h ago",
+                              "fontFamily": "$font-body",
+                              "fontSize": 11,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "AhK0G",
+                  "name": "Ad — Sidebar",
+                  "width": "fill_container",
+                  "height": 280,
+                  "fill": "$accentSoft",
+                  "cornerRadius": 16,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n6XHmj",
+                      "name": "al",
+                      "fill": "$accent",
+                      "content": "ADVERTISEMENT",
+                      "fontFamily": "$font-body",
+                      "fontSize": 10,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "kwEnw",
+                      "name": "asz",
+                      "fill": "$muted",
+                      "content": "Sidebar ad slot · 300 × 250",
+                      "fontFamily": "$font-body",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "QsJtu",
+                  "name": "Trending Card",
+                  "width": "fill_container",
+                  "fill": "$surface",
+                  "cornerRadius": 16,
+                  "stroke": "$rule",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 18,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UIRzX",
+                      "name": "TH",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "bqiVA",
+                          "name": "fire",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "trending-up",
+                          "library": "lucide",
+                          "fill": "$accent"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QL4yM",
+                          "name": "TT",
+                          "fill": "$ink",
+                          "content": "Trending Now",
+                          "fontFamily": "$font-head",
+                          "fontSize": 16,
+                          "fontWeight": "800",
+                          "letterSpacing": -0.3
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "oxFue",
+                      "name": "Tags",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "HSjb8",
+                          "name": "Tag",
+                          "fill": "$surface2",
+                          "cornerRadius": 14,
+                          "stroke": "$rule",
+                          "strokeWidth": 1,
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "w9FPM",
+                              "name": "tt",
+                              "fill": "$body",
+                              "content": "#Election",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "eT6br",
+                          "name": "Tag",
+                          "fill": "$surface2",
+                          "cornerRadius": 14,
+                          "stroke": "$rule",
+                          "strokeWidth": 1,
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "l8zgM3",
+                              "name": "tt",
+                              "fill": "$body",
+                              "content": "#Markets",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "OAxUm",
+                          "name": "Tag",
+                          "fill": "$surface2",
+                          "cornerRadius": 14,
+                          "stroke": "$rule",
+                          "strokeWidth": 1,
+                          "padding": [
+                            6,
+                            12
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "rbaJ3",
+                              "name": "tt",
+                              "fill": "$body",
+                              "content": "#Climate",
+                              "fontFamily": "$font-body",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "aK5Ld",
+          "name": "Footer",
+          "width": "fill_container",
+          "fill": "$ink",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            44,
+            28,
+            26,
+            28
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "PLnPO",
+              "name": "FTop",
+              "width": "fill_container",
+              "gap": 40,
+              "justifyContent": "space_between",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "J7TUK",
+                  "name": "FBrand",
+                  "width": 320,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "J2XiS",
+                      "name": "FW",
+                      "fill": "#ffffff",
+                      "content": "News Mash",
+                      "fontFamily": "$font-head",
+                      "fontSize": 22,
+                      "fontWeight": "800",
+                      "letterSpacing": -0.5
+                    },
+                    {
+                      "type": "text",
+                      "id": "i6NaM",
+                      "name": "FTag",
+                      "fill": "#B9AF9F",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "AI-driven news, gathered and summarized so you can stay up to date in minutes.",
+                      "lineHeight": 1.55,
+                      "fontFamily": "$font-body",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qM2bF",
+                  "name": "FCols",
+                  "gap": 48,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "aED6K",
+                      "name": "FCol",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mbipL",
+                          "name": "FH",
+                          "fill": "#8E8576",
+                          "content": "Sections",
+                          "fontFamily": "$font-head",
+                          "fontSize": 12,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "xdpxc",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "US",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "mz2cU",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "World",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "a4nYp",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Crime",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wwldH",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Politics",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "BhBTL",
+                      "name": "FCol",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "llV57",
+                          "name": "FH",
+                          "fill": "#8E8576",
+                          "content": "More",
+                          "fontFamily": "$font-head",
+                          "fontSize": 12,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "RdFVI",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Science",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "p626a",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Health",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "qVlMe",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Tech",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "G5uzbK",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Financial",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "nvL7U",
+                      "name": "FCol",
+                      "layout": "vertical",
+                      "gap": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "rNywt",
+                          "name": "FH",
+                          "fill": "#8E8576",
+                          "content": "About",
+                          "fontFamily": "$font-head",
+                          "fontSize": 12,
+                          "fontWeight": "700",
+                          "letterSpacing": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "aDOow",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "About this site",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "p33DY",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Privacy Policy",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "z9xql6",
+                          "name": "FL",
+                          "fill": "#D9D0C4",
+                          "content": "Contact Us",
+                          "fontFamily": "$font-body",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "sm3Yc",
+              "name": "FBot",
+              "width": "fill_container",
+              "stroke": "#3a322a",
+              "strokeWidth": {
+                "top": 1
+              },
+              "padding": [
+                20,
+                0,
+                0,
+                0
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "E405Hd",
+                  "name": "cp",
+                  "fill": "#8E8576",
+                  "content": "© 2026 News Mash",
+                  "fontFamily": "$font-body",
+                  "fontSize": 11,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "DwvrG",
+                  "name": "Soc",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "KifxM",
+                      "name": "facebook",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "facebook",
+                      "library": "lucide",
+                      "fill": "#B9AF9F"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "gAh1X",
+                      "name": "twitter",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "twitter",
+                      "library": "lucide",
+                      "fill": "#B9AF9F"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "y5YNIA",
+                      "name": "instagram",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "instagram",
+                      "library": "lucide",
+                      "fill": "#B9AF9F"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "j4cpfL",
+                      "name": "rss",
+                      "width": 15,
+                      "height": 15,
+                      "icon": "rss",
+                      "library": "lucide",
+                      "fill": "#B9AF9F"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "accent": {
+      "type": "color",
+      "value": "#C75D3A"
+    },
+    "accentSoft": {
+      "type": "color",
+      "value": "#F3E2D6"
+    },
+    "bg": {
+      "type": "color",
+      "value": "#F6F1E9"
+    },
+    "body": {
+      "type": "color",
+      "value": "#524B40"
+    },
+    "font-body": {
+      "type": "string",
+      "value": "Inter"
+    },
+    "font-head": {
+      "type": "string",
+      "value": "Plus Jakarta Sans"
+    },
+    "ink": {
+      "type": "color",
+      "value": "#211C16"
+    },
+    "muted": {
+      "type": "color",
+      "value": "#8E8576"
+    },
+    "rule": {
+      "type": "color",
+      "value": "#E8E0D2"
+    },
+    "surface": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "surface2": {
+      "type": "color",
+      "value": "#FBF7F0"
+    }
+  }
+}

@@ -3558,6 +3558,8 @@ body.small-first-post .loop-container .entry.double.small:nth-child(even) .stick
   --nm-radius-card: 14px;
   --nm-radius-thumb: 10px;
   --nm-radius-pill: 999px;
+  --nm-radius-block: 15px;
+  --nm-callout-bg: #8c919c;
   --nm-font-head: "Plus Jakarta Sans", "PT Sans", sans-serif;
   --nm-font-body: "Inter", "PT Sans", sans-serif;
   --nm-gap: 20px;
@@ -4954,4 +4956,42 @@ h3 {
   .site-footer .menu-footer-items {
     flex-wrap: nowrap;
   }
+}
+.key-takeaways {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  background-color: var(--nm-callout-bg);
+  padding: 1em;
+  color: #fff;
+  border-radius: var(--nm-radius-block);
+}
+.key-takeaways h2 {
+  color: #fff;
+  font-size: 2em;
+}
+.key-takeaways ul li {
+  margin-bottom: 1em;
+}
+
+.post-meta,
+.more-from-category,
+.comments {
+  padding: 1.5em;
+}
+
+.menu-primary-container {
+  border-radius: var(--nm-radius-block) var(--nm-radius-block) 0 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.design-credit {
+  display: none;
+}
+
+.site-footer {
+  border-top-left-radius: var(--nm-radius-block);
+  border-top-right-radius: var(--nm-radius-block);
 }

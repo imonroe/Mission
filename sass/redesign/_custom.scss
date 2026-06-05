@@ -1,0 +1,54 @@
+// redesign/_custom.scss — site-author refinements promoted from the WordPress
+// Customizer "Additional CSS" box into the theme. Loaded last so it matches the
+// exact cascade position (and therefore rendering) of the Additional CSS that
+// produced the approved look. Values that map to existing tokens use them;
+// the original literals are noted in comments for reference.
+
+// "Key takeaways" callout block (authored inside post content).
+.key-takeaways {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5em;
+  background-color: var(--nm-callout-bg);  // #8c919c
+  padding: 1em;
+  color: #fff;
+  border-radius: var(--nm-radius-block);   // 15px
+
+  h2 {
+    color: #fff;
+    font-size: 2em;
+  }
+
+  ul li {
+    margin-bottom: 1em;
+  }
+}
+
+// Roomier padding on the single-post footer blocks. These reinforce the §9
+// rules in _cards.scss but also cover the comments wrapper, whose real class is
+// `.comments` (not the `#comments` the earlier rule assumed).
+.post-meta,
+.more-from-category,
+.comments {
+  padding: 1.5em;
+}
+
+// Primary nav: rounded top corners (the chip band sits on the page like a card
+// joined to the content below). Keep the full-bleed width from _nav-chips.scss.
+.menu-primary-container {
+  border-radius: var(--nm-radius-block) var(--nm-radius-block) 0 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+// Hide the "Mission News Theme by Compete Themes" credit line.
+.design-credit {
+  display: none;
+}
+
+// Footer: rounded top corners to match the nav treatment.
+.site-footer {
+  border-top-left-radius: var(--nm-radius-block);
+  border-top-right-radius: var(--nm-radius-block);
+}

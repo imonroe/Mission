@@ -54,3 +54,14 @@
 @import "woocommerce";
 
 @import "footer_menu";
+
+// ===== App-feed redesign (override layer — loaded last) =====
+@import "redesign/tokens";
+@import "redesign/base";
+@import "redesign/header";
+@import "redesign/nav-chips";
+@import "redesign/layout";
+@import "redesign/cards";
+@import "redesign/widgets";
+@import "redesign/footer";
+@import "redesign/custom";

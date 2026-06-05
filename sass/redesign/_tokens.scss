@@ -1,0 +1,62 @@
+// redesign/_tokens.scss — design tokens + shared helpers for the app-feed reskin.
+// Owned by the lead. Other redesign partials reference these via var(--nm-*).
+
+:root {
+  --nm-bg: #F6F1E9;
+  --nm-surface: #FFFFFF;
+  --nm-surface-2: #FBF7F0;
+  --nm-ink: #211C16;
+  --nm-body: #524B40;
+  --nm-muted: #8E8576;
+  --nm-rule: #E8E0D2;
+  --nm-accent: #C75D3A;
+  --nm-accent-soft: #F3E2D6;
+
+  // category accents
+  --nm-cat-politics: #B5543A;
+  --nm-cat-world: #2F726B;
+  --nm-cat-tech: #5E5687;
+  --nm-cat-science: #6B7547;
+  --nm-cat-health: #AC5A66;
+  --nm-cat-financial: #B07F2A;
+  --nm-cat-us: #3F6FA0;
+  --nm-cat-crime: #7A4A45;
+
+  --nm-radius-card: 14px;
+  --nm-radius-thumb: 10px;
+  --nm-radius-pill: 999px;
+  --nm-radius-block: 15px;   // callouts, nav/footer corners (site-author tweaks)
+
+  --nm-callout-bg: #8c919c;  // "Key takeaways" callout panel
+
+  --nm-font-head: 'Plus Jakarta Sans', 'PT Sans', sans-serif;
+  --nm-font-body: 'Inter', 'PT Sans', sans-serif;
+
+  --nm-gap: 20px;
+  --nm-shadow-card: 0 2px 12px 0 rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+
+  // Horizontal padding of the header bar. Shared so the chip-nav full-bleed
+  // band can cancel it exactly (and stay aligned to the wordmark). Bumped to
+  // 2rem at desktop to match the header's desktop padding.
+  --nm-header-pad-x: 1.25rem;
+}
+
+@media all and (min-width: 50em) {
+  :root { --nm-header-pad-x: 2rem; }
+}
+
+// White rounded card surface used across cards/widgets.
+%nm-card {
+  background: var(--nm-surface);
+  border: 1px solid var(--nm-rule);
+  border-radius: var(--nm-radius-card);
+}
+
+// Small uppercase category label / pill base.
+%nm-eyebrow {
+  font-family: var(--nm-font-head);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

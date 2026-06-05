@@ -1,0 +1,510 @@
+// redesign/_cards.scss
+// Archive post cards, hero (first) card, image, meta, byline, category chips,
+// and pagination.  Override-only layer — loaded last via style.scss.
+// References var(--nm-*) tokens defined in _tokens.scss (loaded first).
+// No hardcoded hex values.  No !important unless noted.
+//
+// Confirmed markup:
+//   Featured image wrapper : .featured-image  (div, with optional <a> inside)
+//   Featured image link    : .featured-image > a  (href = post or media URL)
+//   Post byline            : .post-byline  (div, contains author/date text +
+//                              .post-categories <p> with <a class="<slug>">)
+//   Category links         : .post-categories a  (inside .post-byline)
+//   Post-class wrapper     : post_class() → .post.hentry (etc.)  (div)
+//   Post header            : .post-header  (div, contains .post-title + byline)
+//   Post content           : .post-content  (div, excerpt on archives)
+//
+// NOTE: Per-category chip colours (Politics, World, Tech, …) require PHP to
+// output a category-slug class on a chip wrapper element.  The category <a>
+// already gets class="<slug>" from ct_mission_news_byline_categories(), so
+// CSS attribute/class selectors could target them — but a full mapping is
+// deferred until the design is confirmed in production.
+
+// ---------------------------------------------------------------------------
+// 1. Placeholders — local to this file
+//    %nm-card and the design tokens (--nm-gap, --nm-shadow-card, …) are defined
+//    in _tokens.scss (loads first); we only need %nm-eyebrow here.
+// ---------------------------------------------------------------------------
+
+// Eyebrow / chip label: small caps label used for category chips in bylines.
+%nm-eyebrow {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--nm-radius-pill);
+  background-color: var(--nm-accent-soft);
+  color: var(--nm-accent);
+  font-family: var(--nm-font-body);
+  font-size: 0.6875rem;  // ~11px
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  line-height: 1.6;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+// ---------------------------------------------------------------------------
+// 2. Archive post card  — wraps every loop post on blog/category/archive pages
+//    .post is the post_class() wrapper div; it gets WordPress body classes
+//    like .hentry, .type-post, .status-publish, etc.
+// ---------------------------------------------------------------------------
+
+#main .post {
+  @extend %nm-card;
+  overflow: hidden;
+  box-shadow: var(--nm-shadow-card);
+  margin-bottom: var(--nm-gap);
+
+  // Remove legacy bottom-border/padding that _post.scss puts on .entry
+  // (post_class adds .hentry, selectors vary — clear the base border)
+  border-bottom: none;
+  padding-bottom: 0;
+
+  // Reset legacy margin that can fight the card
+  margin-top: 0;
+
+  // Inner <article> — flush, no extra padding, no border
+  > article {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 3. Featured image — flush at card top, full bleed, consistent aspect ratio
+//    .featured-image is the div emitted by ct_mission_news_featured_image().
+//    Legacy _featured_image.scss already makes img{ width:100% } — we only
+//    need to ensure the wrapper is flush and the img/link fills it cleanly.
+// ---------------------------------------------------------------------------
+
+#main .post .featured-image {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;   // collapse inline whitespace under the img
+
+  // Aspect-ratio box — 16:9 on standard cards, taller on hero (overridden §6)
+  height: 0;
+  padding-bottom: 56.25%;  // 16:9
+  position: relative;
+  overflow: hidden;
+
+  // Anchor wrapper (when featured_image_link is set)
+  > a {
+    display: block;
+    font-size: 0;  // hide the accessible title text rendered as esc_html(get_the_title())
+    line-height: 0;
+    position: absolute;
+    inset: 0;
+
+    &:hover,
+    &:focus {
+      opacity: 0.92;
+      outline: none;
+    }
+  }
+
+  // The actual <img>
+  > img,
+  > a > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    position: absolute;
+    inset: 0;
+
+    // Corner radius only at the top of the card (image flush = card radius)
+    border-radius: var(--nm-radius-card) var(--nm-radius-card) 0 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 4. Post header — title + byline band below the image
+// ---------------------------------------------------------------------------
+
+#main .post .post-header {
+  padding: 14px 18px 10px;
+  margin: 0;
+
+  // Remove legacy half-em top/bottom margin from _post.scss
+  border: none;
+}
+
+// ---------------------------------------------------------------------------
+// 5. Post title typography
+// ---------------------------------------------------------------------------
+
+#main .post .post-title {
+  font-family: var(--nm-font-head);
+  font-weight: 800;
+  font-size: 1.125rem;   // 18px — comfortable card title
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--nm-ink);
+  margin: 0 0 6px;
+
+  a,
+  a:link,
+  a:visited {
+    color: var(--nm-ink);
+    text-decoration: none;
+    font-family: var(--nm-font-head);
+    font-weight: 800;
+    transition: color 0.15s;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--nm-accent);
+    text-decoration: none;
+  }
+}
+
+// Override legacy responsive font-size ladders in _post.scss that use em
+// breakpoints — pin a sensible scale for archive cards.
+@media all and (min-width: 31.25em) {  // $five-hundred
+  #main .post .post-title {
+    font-size: 1.125rem;
+  }
+}
+@media all and (min-width: 50em) {    // $eight-hundred
+  #main .post .post-title {
+    font-size: 1.125rem;
+  }
+}
+@media all and (min-width: 68.75em) { // $eleven-hundred
+  #main .post .post-title {
+    font-size: 1.1875rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 6. Byline / meta
+// ---------------------------------------------------------------------------
+
+#main .post .post-byline {
+  font-family: var(--nm-font-body);
+  font-size: 0.75rem;     // 12px
+  color: var(--nm-muted);
+  line-height: 1.5;
+  margin: 0;
+
+  // Override legacy uppercase from _post.scss
+  text-transform: none;
+  letter-spacing: 0;
+
+  // Category chips — .post-categories p > a — styled as eyebrow pills
+  .post-categories {
+    display: inline;
+    margin: 0;
+    font-style: normal;
+
+    a {
+      @extend %nm-eyebrow;
+      margin-left: 4px;
+      margin-right: 2px;
+
+      // Default chip: solid accent pill, white label.
+      background-color: var(--nm-accent);
+      color: var(--nm-surface);
+      transition: opacity 0.15s;
+
+      &:hover,
+      &:focus {
+        opacity: 0.85;
+        color: var(--nm-surface);
+      }
+
+      // Per-category colours. ct_mission_news_byline_categories() outputs
+      // class="<slug>" on each category <a> (sanitize_title of the cat name),
+      // so we recolour the chip per slug from the --nm-cat-* tokens. Slugs
+      // match the live NewsMash sections; unmapped categories fall back to the
+      // default accent pill above.
+      $nm-category-slugs: us, world, crime, politics, science, health, tech, financial;
+      @each $slug in $nm-category-slugs {
+        &.#{$slug} {
+          background-color: var(--nm-cat-#{$slug});
+        }
+      }
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 7. Post content (excerpt) — padding continuation below the header
+// ---------------------------------------------------------------------------
+
+#main .post .post-content {
+  padding: 0 18px 18px;
+  margin: 0;
+
+  font-family: var(--nm-font-body);
+  font-size: 0.875rem;    // 14px
+  color: var(--nm-body);
+  line-height: 1.6;
+
+  // Remove legacy top-margin from _post.scss
+  > p:first-child {
+    margin-top: 0;
+  }
+  > p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 8. HERO — first post in the loop
+//    post_class() puts the first post into the same .post wrapper, but
+//    WordPress doesn't add a "first-post" class by default.  The strongest
+//    reliable CSS selector is #main .post:first-of-type (valid because all
+//    loop posts share the same div element type inside #main, so :first-of-type
+//    reliably targets the first one in standard single-layout loops).
+//    For the double-column layout (.layout-double) the first post is inside
+//    .double and this rule is intentionally not scoped to that layout — it
+//    targets the widest standard layouts (layout-default / layout-rows /
+//    layout-rows-excerpt / no-layout) where a single-column hero makes sense.
+// ---------------------------------------------------------------------------
+
+#main .post:first-of-type {
+
+  // Taller image: 3:2 aspect ratio
+  .featured-image {
+    padding-bottom: 66.666%;  // 3:2
+  }
+
+  // Larger, bolder headline
+  .post-title {
+    font-size: 1.4375rem;     // 23px
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+
+    a,
+    a:link,
+    a:visited {
+      font-size: inherit;
+      font-weight: 800;
+    }
+  }
+
+  // A touch more header padding to breathe
+  .post-header {
+    padding: 18px 20px 12px;
+  }
+
+  .post-content {
+    padding: 0 20px 20px;
+    font-size: 0.9375rem;  // 15px — slightly larger excerpt on hero
+  }
+}
+
+// Responsive hero title scale
+@media all and (min-width: 37.5em) {   // $six-hundred
+  #main .post:first-of-type .post-title {
+    font-size: 1.625rem;   // 26px
+  }
+}
+@media all and (min-width: 50em) {     // $eight-hundred
+  #main .post:first-of-type .post-title {
+    font-size: 1.5rem;     // 24px — column narrows when sidebars appear
+  }
+}
+@media all and (min-width: 68.75em) {  // $eleven-hundred
+  #main .post:first-of-type .post-title {
+    font-size: 1.75rem;    // 28px — wide layout
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 9. Pagination
+//    .pagination wraps .nav-links which contains .page-numbers a/span.
+//    We replace the legacy grey-box style with pill/card buttons in the
+//    redesign palette.
+// ---------------------------------------------------------------------------
+
+.pagination {
+  clear: both;
+  margin: var(--nm-gap) 0;
+  padding: 0;
+  border-top: none;   // override legacy 1px border from _loop_pagination.scss
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+
+  // Override legacy padding media queries that come from _loop_pagination.scss
+  // by re-applying display:flex here (specificity wins via later cascade).
+}
+
+// Shared pill style for all page-number elements (links and current span)
+.pagination a,
+.pagination span,
+.pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: var(--nm-radius-pill);
+  border: 1px solid var(--nm-rule);
+  background-color: var(--nm-surface);
+  font-family: var(--nm-font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--nm-body);
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s, background-color 0.15s;
+
+  // Undo the fixed margin the legacy rule adds
+  margin: 0;
+}
+
+// Hover / focus state
+.pagination a:hover,
+.pagination a:focus {
+  border-color: var(--nm-accent);
+  color: var(--nm-accent);
+  background-color: var(--nm-surface);
+  outline: none;
+}
+
+// Current page — filled accent pill
+.pagination .current,
+.pagination span.current {
+  background-color: var(--nm-accent);
+  border-color: var(--nm-accent);
+  color: var(--nm-surface);
+  cursor: default;
+}
+
+// Prev / Next — same pill style, no extra margin adjustments needed
+// (legacy .prev / .next margin overrides are superseded by gap on flex parent)
+.pagination .prev,
+.pagination .next {
+  margin: 0;
+}
+
+// Dots spacer (…)
+.pagination .dots {
+  border-color: transparent;
+  background-color: transparent;
+  color: var(--nm-muted);
+  cursor: default;
+}
+
+// ---------------------------------------------------------------------------
+// 9. Single post — restore horizontal padding on the meta/related blocks that
+//    live OUTSIDE .post-content, and add reading-column breathing room.
+//
+//    Real markup (content.php): inside <article> the order is
+//      .post-header  → padded by §4
+//      .featured-image
+//      .post-content → padded by §7
+//      .post-meta    → wraps .post-categories ("Published in"), .post-tags,
+//                      the after-post widget area, and .post-author  (padL: 0)
+//      .more-from-category  (direct article child, padL: 0)
+//    The two padL:0 blocks were jammed against the card edges. Pad them to
+//    match the body column, and give the single post a roomier rhythm.
+// ---------------------------------------------------------------------------
+
+$nm-single-pad: 28px;
+
+.single #main .post .post-header,
+.single #main .post .post-content,
+.single #main .post .post-meta,
+.single #main .post .more-from-category {
+  padding-left: $nm-single-pad;
+  padding-right: $nm-single-pad;
+}
+
+// A little more top room above the title, and bottom room at the very end.
+.single #main .post .post-header { padding-top: 22px; }
+.single #main .post .more-from-category { padding-bottom: $nm-single-pad; }
+
+// .post-meta groups the categories/tags/author footer — give it vertical air.
+.single #main .post .post-meta {
+  padding-top: 4px;
+  padding-bottom: 20px;
+}
+
+// "Published in" line — readable, not cramped italic.
+.single #main .post .post-meta .post-categories {
+  color: var(--nm-muted);
+  font-style: normal;
+  margin-bottom: 14px;
+
+  a {
+    color: var(--nm-accent);
+    text-decoration: none;
+
+    &:hover,
+    &:focus { text-decoration: underline; }
+  }
+}
+
+// Tags as soft chips.
+.single #main .post .post-tags {
+  a {
+    border-radius: var(--nm-radius-pill);
+    background: var(--nm-surface-2);
+    border: 1px solid var(--nm-rule);
+    color: var(--nm-body);
+    padding: 4px 12px;
+    margin: 0 6px 6px 0;
+    transition: border-color 0.15s, color 0.15s;
+
+    &:hover,
+    &:focus {
+      background: var(--nm-surface-2);
+      border-color: var(--nm-accent);
+      color: var(--nm-accent);
+    }
+  }
+}
+
+// Author bio — readable name + description.
+.single #main .post .post-author {
+  .author {
+    font-family: var(--nm-font-head);
+    font-weight: 800;
+    font-style: normal;
+    color: var(--nm-ink);
+  }
+  p { color: var(--nm-body); }
+}
+
+// "More from <category>" related list — heading + comfortable item spacing.
+.single #main .post .more-from-category {
+  .section-title {
+    font-family: var(--nm-font-head);
+    font-weight: 800;
+    color: var(--nm-ink);
+  }
+  .category-link {
+    color: var(--nm-accent);
+    text-decoration: none;
+
+    &:hover,
+    &:focus { text-decoration: underline; }
+  }
+  .title {
+    font-family: var(--nm-font-head);
+    color: var(--nm-ink);
+
+    &:hover,
+    &:focus { color: var(--nm-accent); }
+  }
+}
+
+// Comments block (when present) needs the same column padding.
+.single #main #comments,
+.single #main .comments-area {
+  padding-left: $nm-single-pad;
+  padding-right: $nm-single-pad;
+  padding-top: 8px;
+}

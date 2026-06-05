@@ -1,0 +1,69 @@
+// redesign/_base.scss
+// Global page foundation: warm-cream background, base typography, body links.
+// Override-only layer — loaded last via style.scss. Reference var(--nm-*) tokens only.
+
+// ---------------------------------------------------------------------------
+// 1. Page background — body, overflow wrapper, max-width wrapper
+// ---------------------------------------------------------------------------
+
+body {
+  background-color: var(--nm-bg);
+  color: var(--nm-body);
+  font-family: var(--nm-font-body);
+}
+
+.overflow-container,
+.max-width {
+  background-color: var(--nm-bg);
+}
+
+// Ensure the cream fills the full viewport even on short pages
+html {
+  background-color: var(--nm-bg);
+}
+
+// ---------------------------------------------------------------------------
+// 2. Headings — Plus Jakarta Sans, ink colour, tightened tracking on large sizes
+// ---------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--nm-font-head);
+  color: var(--nm-ink);
+}
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  letter-spacing: -0.01em;
+}
+
+// h4 and below — leave tracking at the browser default (no adjustment needed
+// at smaller sizes per the spec).
+
+// ---------------------------------------------------------------------------
+// 3. Content / body links — scoped to .post-content so we do not accidentally
+//    touch .post-title a (owned by _cards.scss) or nav links.
+// ---------------------------------------------------------------------------
+
+.post-content {
+  a {
+    color: var(--nm-accent);
+    text-decoration-color: var(--nm-accent);
+
+    &:hover,
+    &:focus {
+      // Darken the accent ~25 % toward ink — hex-free via color-mix().
+      color: color-mix(in srgb, var(--nm-accent) 75%, var(--nm-ink));
+      text-decoration-color: color-mix(in srgb, var(--nm-accent) 75%, var(--nm-ink));
+    }
+  }
+}

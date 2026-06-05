@@ -1,0 +1,249 @@
+// redesign/_widgets.scss
+// Sidebar widgets restyled as white rounded cards.
+// Override-only layer — loaded last via style.scss.
+// %nm-card is defined in _nav-chips.scss (loads before this file).
+// References var(--nm-*) tokens only; no hardcoded hex; no !important.
+// The dark footer override lives in _footer.scss via .site-footer .widget.
+
+// ---------------------------------------------------------------------------
+// 1. Base widget card — every sidebar widget becomes a white rounded card.
+// ---------------------------------------------------------------------------
+
+.widget {
+  @extend %nm-card;
+  padding: 18px;
+  margin-bottom: var(--nm-gap, 1.25rem);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  // Remove legacy list resets that clash with card interior spacing
+  > ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+  }
+
+  select {
+    margin-bottom: 6px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 2. Widget title — Jakarta Sans 800, ink colour, terracotta accent rule.
+// ---------------------------------------------------------------------------
+
+.widget-title {
+  font-family: var(--nm-font-head);
+  font-weight: 800;
+  color: var(--nm-ink);
+  margin-top: 0;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--nm-accent);
+  font-size: 0.875rem;       // ~14 px — eyebrow-scale title
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+// ---------------------------------------------------------------------------
+// 3. Generic .widget ul li — clean spacing + hairline dividers.
+// ---------------------------------------------------------------------------
+
+.widget ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--nm-rule);
+  list-style: none;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 4. Recent Posts Extended widget (widget_ct_mission_news_post_list).
+//    Real HTML classes sourced from inc/widgets/post-list.php:
+//      .post-item           — each <li> in the post list
+//      .post-item.has-image — variant when featured image is shown
+//      .featured-image      — thumbnail wrapper <div>
+//      .top                 — row container <div> (image + text)
+//      .top-inner           — title + byline column <div>
+//      .title               — post title <a class="title">
+//      .post-byline         — author/date meta <div> (from functions.php)
+//      .bottom / .excerpt   — excerpt wrapper divs
+// ---------------------------------------------------------------------------
+
+.widget_ct_mission_news_post_list {
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  // Override legacy generic .widget ul li dividers for post-item rows;
+  // we re-declare them explicitly below with better control.
+  li.post-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--nm-rule);
+    list-style: none;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  // Row layout when thumbnail is present
+  .post-item.has-image {
+
+    .top {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+  }
+
+  // Thumbnail — rounded per var(--nm-radius-thumb)
+  .featured-image {
+    flex: 0 0 72px;
+    width: 72px;
+
+    a {
+      display: block;
+    }
+
+    img {
+      display: block;
+      width: 72px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: var(--nm-radius-thumb);
+    }
+
+    // The PHP echoes the post title as text before the <img> inside <a>;
+    // hide that text node so only the thumbnail shows.
+    a {
+      font-size: 0;
+      color: transparent;
+
+      img {
+        font-size: initial;
+        color: initial;
+      }
+    }
+  }
+
+  // Title + meta column
+  .top-inner {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  // Post title link
+  .title {
+    font-family: var(--nm-font-head);
+    font-weight: 700;
+    color: var(--nm-ink);
+    text-decoration: none;
+    display: block;
+    font-size: 0.9375rem; // 15px
+    margin-bottom: 4px;
+    line-height: 1.3;
+
+    &:hover,
+    &:focus {
+      color: var(--nm-accent);
+    }
+  }
+
+  // Byline — author / date meta
+  .post-byline {
+    font-family: var(--nm-font-body);
+    font-size: 0.75rem;
+    color: var(--nm-muted);
+    margin: 0;
+  }
+
+  // Excerpt
+  .excerpt {
+    font-family: var(--nm-font-body);
+    font-size: 0.8125rem;
+    color: var(--nm-body);
+    margin-top: 6px;
+
+    p:first-child {
+      margin-top: 0;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Bottom area (excerpt + comments link)
+  .bottom {
+    margin-top: 4px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 5. Ad-style widgets — soft surface, centred placeholder feel.
+// ---------------------------------------------------------------------------
+
+.widget_text,
+.widget_media_image {
+  background-color: var(--nm-surface-2);
+  border-color: var(--nm-accent-soft);
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// 6. Tag cloud — small rounded chips ("Trending tags" look).
+// ---------------------------------------------------------------------------
+
+.widget_tag_cloud {
+
+  .tagcloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+
+    a {
+      display: inline-block;
+      background-color: var(--nm-surface-2);
+      color: var(--nm-body);
+      border: 1px solid var(--nm-rule);
+      border-radius: var(--nm-radius-pill);
+      padding: 3px 10px;
+      font-family: var(--nm-font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-decoration: none;
+      line-height: 1.5;
+      white-space: nowrap;
+      transition: background-color 0.15s, color 0.15s;
+
+      &:hover,
+      &:focus {
+        background-color: var(--nm-accent-soft);
+        color: var(--nm-accent);
+        border-color: var(--nm-accent-soft);
+      }
+    }
+  }
+}

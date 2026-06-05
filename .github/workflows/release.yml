@@ -1,0 +1,46 @@
+name: Release Theme Zip
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build zip
+        run: |
+          TAG=${GITHUB_REF_NAME}
+          ZIP_NAME="mission-news.zip"
+          rsync -r . /tmp/mission-news \
+            --exclude ".git/" \
+            --exclude ".github/" \
+            --exclude ".gitignore" \
+            --exclude ".sass-cache/" \
+            --exclude ".DS_Store" \
+            --exclude ".idea/" \
+            --exclude "gruntfile.js" \
+            --exclude "node_modules/" \
+            --exclude "package.json" \
+            --exclude "package-lock.json" \
+            --exclude "sass/" \
+            --exclude "designs/" \
+            --exclude "docs/" \
+            --exclude "CLAUDE.md" \
+            --exclude "style.css.map" \
+            --exclude "styles/admin.css.map" \
+            --exclude "styles/customizer.css.map" \
+            --exclude "styles/editor-style.css.map"
+          cd /tmp
+          zip -r "$ZIP_NAME" mission-news
+          mv "$ZIP_NAME" "$GITHUB_WORKSPACE/$ZIP_NAME"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mission-news.zip
+          generate_release_notes: true
